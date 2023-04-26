@@ -1,1 +1,1 @@
-export * from './counter.store';
+export * from './modules/counter.store';
