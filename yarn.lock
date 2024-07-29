@@ -423,6 +423,11 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.47.tgz#e597ef75086c6e896ff5478a6bfc0a7aa4bbd14c"
   integrity sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==
 
+"@waiting/shared-types@^20.11.0":
+  version "20.13.0"
+  resolved "https://registry.npmmirror.com/@waiting/shared-types/-/shared-types-20.13.0.tgz#5da3ac8b28faae242ae700973989cb1ebb356392"
+  integrity sha512-OiMocNStZbtkf8LEwrbtAuiI3WtwXo+Aoqhz6jP6i9KSogNDsEMccJRz5wq+gVeO2qEcymn5J2NyK7vR/icgBg==
+
 abbrev@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -2418,6 +2423,20 @@ wide-align@^1.1.5:
   integrity sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==
   dependencies:
     string-width "^1.0.2 || 2 || 3 || 4"
+
+win32-api@^20.4.1:
+  version "20.4.1"
+  resolved "https://registry.npmmirror.com/win32-api/-/win32-api-20.4.1.tgz#eaeac2ed813bcc3e16824aee23b9970cf4c434ec"
+  integrity sha512-STbeoFsVndgc5eMmXcvmuuoWM2S8mOh/0V2w/gmYAFSI+FPoYDjGhvntrvhvoFMec8AC2ReI2LSkb8KGyEqhPQ==
+  dependencies:
+    win32-def "^20.4.1"
+
+win32-def@^20.4.1:
+  version "20.4.1"
+  resolved "https://registry.npmmirror.com/win32-def/-/win32-def-20.4.1.tgz#3b55a736de7d4ff63ffc0cb3373817b3e9904c23"
+  integrity sha512-d2y6pN/ebLU4Vsu4JepzeEtdWTVcAkJIiAFZiPjT/mjac2YYvhM4jM2bGKdt8usJNxAI2o7YiF0ytdVDQO6Qdg==
+  dependencies:
+    "@waiting/shared-types" "^20.11.0"
 
 wrap-ansi@^7.0.0:
   version "7.0.0"

@@ -1,7 +1,7 @@
-import {app, BrowserWindow, ipcMain, session} from 'electron';
-import {join} from 'path';
+import { app, BrowserWindow, ipcMain, session, dialog } from 'electron';
+import { join } from 'path';
 
-function createWindow () {
+function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -49,3 +49,16 @@ app.on('window-all-closed', function () {
 ipcMain.on('message', (event, message) => {
   console.log(message);
 })
+
+ipcMain.on('openSomething', (event, message) => {
+  console.log(message);
+})
+
+ipcMain.handle('dialog:openFile', handleFileOpen)
+
+async function handleFileOpen() {
+  const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openFile'] })
+  if (!canceled) {
+    return filePaths[0]
+  }
+} 
