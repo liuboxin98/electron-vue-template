@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import HelloWorld from './components/HelloWorld.vue';
 
 window.electronAPI.sendMessage('Hello from App.vue 2023!');

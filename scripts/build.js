@@ -3,6 +3,10 @@ const Chalk = require('chalk');
 const FileSystem = require('fs');
 const Vite = require('vite');
 const compileTs = require('./private/tsc');
+const babel = require('./private/babel');
+const ChildProcess = require('child_process');
+const Electron = require('electron');
+const { EOL } = require('os');
 
 function buildRenderer() {
     return Vite.build({
@@ -14,7 +18,7 @@ function buildRenderer() {
 
 function buildMain() {
     const mainPath = Path.join(__dirname, '..', 'src', 'main');
-    return compileTs(mainPath);
+    return babel(mainPath);
 }
 
 FileSystem.rmSync(Path.join(__dirname, '..', 'build'), {

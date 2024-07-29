@@ -7,6 +7,7 @@ const Chalk = require('chalk');
 const Chokidar = require('chokidar');
 const Electron = require('electron');
 const compileTs = require('./private/tsc');
+const compileBabel = require('./private/babel');
 const FileSystem = require('fs');
 const { EOL } = require('os');
 
@@ -29,10 +30,21 @@ async function startElectron() {
         return;
     }
 
+    // This is not needed because we don't have any TS in main process.
+
+    // try {
+    //     await compileTs(Path.join(__dirname, '..', 'src', 'main'));
+    // } catch {
+    //     console.log(Chalk.redBright('Could not start Electron because of the above typescript error(s).'));
+    //     electronProcessLocker = false;
+    //     return;
+    // }
+
     try {
-        await compileTs(Path.join(__dirname, '..', 'src', 'main'));
-    } catch {
-        console.log(Chalk.redBright('Could not start Electron because of the above typescript error(s).'));
+
+        await compileBabel(Path.join(__dirname, '..', 'src', 'main'));
+    } catch (error) {
+        console.log(Chalk.redBright('Could not start Electron because of the above babel error(s).'));
         electronProcessLocker = false;
         return;
     }
@@ -52,7 +64,7 @@ async function startElectron() {
         process.stdout.write(Chalk.blueBright(`[electron] `) + Chalk.white(data.toString()))
     });
 
-    electronProcess.stderr.on('data', data => 
+    electronProcess.stderr.on('data', data =>
         process.stderr.write(Chalk.blueBright(`[electron] `) + Chalk.white(data.toString()))
     );
 
