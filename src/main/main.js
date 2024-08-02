@@ -1,5 +1,15 @@
 import { app, BrowserWindow, ipcMain, session, dialog } from 'electron';
+import { handleFileOpen, ipcGetsomething } from './ipc-handlers/ipc-handlers';
 import { join } from 'path';
+import { fork } from 'child_process';
+import log from 'electron-log';
+log.transports.file.resolvePathFn = () => 'logs/main.log';
+
+// 获取应用程序的根目录
+const appPath = app.getAppPath();
+const staticPath = join(appPath, 'static');
+
+// // log.info('icon', join(staticPath, 'icon.ico'));
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -9,7 +19,8 @@ function createWindow() {
       preload: join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
-    }
+    },
+    icon: join(staticPath, 'icon.ico'),
   });
 
   if (process.env.NODE_ENV === 'development') {
@@ -54,11 +65,5 @@ ipcMain.on('openSomething', (event, message) => {
   console.log(message);
 })
 
-ipcMain.handle('dialog:openFile', handleFileOpen)
-
-async function handleFileOpen() {
-  const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openFile'] })
-  if (!canceled) {
-    return filePaths[0]
-  }
-} 
+ipcMain.handle('dialog:openFile', handleFileOpen);
+ipcMain.handle('ipcinvoke:ipcGetsomething', ipcGetsomething);

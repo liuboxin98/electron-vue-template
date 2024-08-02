@@ -21,13 +21,19 @@ function compile(directory) {
             cwd: directory,
         });
 
+		let errorMessage = '';
+
         babelProcess.stdout.on('data', data =>
             process.stdout.write(Chalk.yellowBright(`[babel] `) + Chalk.white(data.toString()))
         );
 
+        babelProcess.stderr.on('data', data => {
+			errorMessage += data.toString();
+        });
+        
         babelProcess.on('exit', exitCode => {
             if (exitCode > 0) {
-                reject(exitCode);
+				reject({ exitCode, message: errorMessage });
             } else {
                 resolve();
             }
@@ -42,8 +48,8 @@ function start() {
         .then(() => {
             console.log('Compilation complete');
         })
-        .catch(exitCode => {
-            console.error(`Compilation failed with exit code ${exitCode}`);
+        .catch(error => {
+			console.error(`Compilation failed with exit code ${error.exitCode}: ${error.message}`);
         });
 }
 

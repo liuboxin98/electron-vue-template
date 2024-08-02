@@ -1,0 +1,32 @@
+[2024-08-02 10:08:13.021] [info]  icon G:\lbx\own\electron-vue-template\build\main\static\icon.ico
+[2024-08-02 10:08:16.824] [info]  addonPath: G:\lbx\own\electron-vue-template\build\main\static\win_tools_node.node
+[2024-08-02 10:08:17.200] [info]  ipcGetsomething res: {
+  code: 0,
+  res: 'Hello, world!',
+  params: { msg: 'hhhhh from Render!' }
+}
+[2024-08-02 10:21:00.849] [info]  icon G:\lbx\own\electron-vue-template\build\main\static\icon.ico
+[2024-08-02 10:21:05.874] [info]  addonPath: G:\lbx\own\electron-vue-template\build\main\static\win_tools_node.node
+[2024-08-02 10:21:06.319] [info]  ipcGetsomething res: {
+  code: 0,
+  res: 'Hello, world!',
+  params: { msg: 'hhhhh from Render!' }
+}
+[2024-08-02 10:25:51.069] [info]  addonPath: G:\lbx\own\electron-vue-template\build\main\static\win_tools_node.node
+[2024-08-02 10:25:51.422] [info]  ipcGetsomething res: {
+  code: 0,
+  res: 'Hello, world!',
+  params: { msg: 'hhhhh from Render!' }
+}
+[2024-08-02 10:26:24.733] [info]  addonPath: G:\lbx\own\electron-vue-template\build\main\static\win_tools_node.node
+[2024-08-02 10:26:25.081] [info]  ipcGetsomething res: {
+  code: 0,
+  res: 'Hello, world!',
+  params: { msg: 'hhhhh from Render!' }
+}
+[2024-08-02 11:39:26.953] [info]  addonPath: G:\lbx\own\electron-vue-template\build\main\static\win_tools_node.node
+[2024-08-02 11:39:27.531] [info]  ipcGetsomething res: {
+  code: 0,
+  res: 'Hello, world!',
+  params: { msg: 'hhhhh from Render!' }
+}
