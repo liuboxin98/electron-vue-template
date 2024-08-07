@@ -1,11 +1,13 @@
 {
   "name": "electron-vue-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal Electron + Vue application",
   "main": "build/main/main.js",
   "scripts": {
+    "compile": "npx electron --v8-cache scripts/compile.js",
+    "start": "node scripts/start.js",
     "dev": "node scripts/dev-server.js",
-    "build": "node scripts/build.js && electron-builder",
+    "build": "npx electron --v8-cache scripts/build.js && electron-builder",
     "build:win": "node scripts/build.js && electron-builder --win",
     "build:mac": "node scripts/build.js && electron-builder --mac",
     "build:linux": "node scripts/build.js && electron-builder --linux"
@@ -21,6 +23,7 @@
     "@babel/preset-env": "^7.25.0",
     "@vitejs/plugin-vue": "4.2.3",
     "axios": "^0.27.2",
+    "babel-preset-minify": "^0.5.2",
     "chalk": "^4.1.2",
     "chokidar": "^3.5.3",
     "electron": "^24.0.0",

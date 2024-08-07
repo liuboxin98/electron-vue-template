@@ -27,7 +27,7 @@ async function buildMain() {
 
 
     // 编译main.js
-    // compileMainToBytecode(outputPath);
+    compileMainToBytecode(outputPath);
 
     // Babel 编译完成后，编译为字节码
     // compileToBytecode(outputPath);
@@ -91,4 +91,5 @@ Promise.allSettled([
     buildMain(),
 ]).then(() => {
     console.log(Chalk.greenBright('Renderer & main successfully transpiled! (ready to be built with electron-builder)'));
+    process.exit(0); // 成功完成后退出
 });

@@ -14,18 +14,25 @@ function compile(directory) {
             '--ignore static',
             '--presets @babel/preset-env'
         ].join(' ');
+        console.log(babelCommand);
 
         const babelProcess = ChildProcess.exec(babelCommand, {
             cwd: directory,
         });
 
+        let stderr = '';
+
         babelProcess.stdout.on('data', data =>
             process.stdout.write(Chalk.yellowBright(`[babel] `) + Chalk.white(data.toString()))
         );
 
+        babelProcess.stderr.on('data', data => {
+            stderr += data.toString();
+        });
+
         babelProcess.on('exit', exitCode => {
             if (exitCode > 0) {
-                reject(exitCode);
+                reject(exitCode + ' ' + stderr);
             } else {
                 resolve();
             }

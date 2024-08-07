@@ -40,17 +40,17 @@ async function startElectron() {
     //     return;
     // }
 
-    try {
+    // try {
 
-        await compileBabel(Path.join(__dirname, '..', 'src', 'main'));
-    } catch (error) {
-        console.log(Chalk.redBright('Could not start Electron because of the above babel error(s). ' + error));
-        electronProcessLocker = false;
-        return;
-    }
+    //     await compileBabel(Path.join(__dirname, '..', 'src', 'main'));
+    // } catch (error) {
+    //     console.log(Chalk.redBright('Could not start Electron because of the above babel error(s).'));
+    //     electronProcessLocker = false;
+    //     return;
+    // }
 
     const args = [
-        Path.join(__dirname, '..', 'build', 'main', 'main.js'),
+        Path.join(__dirname, '..', 'build', 'main', 'start.js'),
         rendererPort,
     ];
     electronProcess = ChildProcess.spawn(Electron, args);
