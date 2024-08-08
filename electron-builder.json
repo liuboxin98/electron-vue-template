@@ -10,22 +10,29 @@
         "shortcutName": "Electron App"
     },
     "win": {
-        "target": "nsis"
+        "target": "nsis",
+        "icon": "src/main/static/icon.ico"
     },
-    "linux":  {
-        "target": ["snap"]
+    "linux": {
+        "target": [
+            "snap"
+        ]
     },
     "files": [
         "build/main/**/*",
         {
             "from": "build/renderer",
             "to": "renderer",
-            "filter": ["**/*"]
+            "filter": [
+                "**/*"
+            ]
         },
         {
             "from": "src/main/static",
             "to": "static",
-            "filter": ["**/*"]
+            "filter": [
+                "**/*"
+            ]
         },
         "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
         "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
