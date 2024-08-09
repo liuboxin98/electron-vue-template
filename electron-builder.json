@@ -9,6 +9,18 @@
         "allowToChangeInstallationDirectory": true,
         "shortcutName": "Electron App"
     },
+    "nsisWeb": {
+        "artifactName": "${productName}_Setup_${version}.${ext}",
+        "oneClick": false,
+        "perMachine": false,
+        "allowToChangeInstallationDirectory": true
+    },
+    "publish": {
+        "provider": "github",
+        "owner": "liuboxin98",
+        "repo": "electron-vue-template",
+        "releaseType": "release"
+    },
     "win": {
         "target": "nsis",
         "icon": "src/main/static/icon.ico"
