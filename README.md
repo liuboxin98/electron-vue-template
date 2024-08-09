@@ -73,3 +73,11 @@ import {readFileSync} from 'fs';
 const path = join(app.getAppPath(), 'static', 'myFile.txt');
 const buffer = readFileSync(path);
 ```
+
+
+
+#### 终端的编码设置为 UTF-8：
+PowerShell:
+```
+chcp 65001
+```
